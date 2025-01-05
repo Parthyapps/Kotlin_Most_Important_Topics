@@ -172,6 +172,9 @@ Coroutines make asynchronous programming easier by allowing your code to run asy
   Main: Job is cancelled.
   ```
 # Advantages of Coroutines
-    Non-blocking: Coroutines make it easy to perform long-running tasks without blocking the main thread.
-    Structured Concurrency: Coroutines respect the scope they are launched in, preventing memory leaks and unnecessary computation.
-    Simplified Async Programming: Writing asynchronous code looks almost the same as writing synchronous code, which makes coroutines more readable than traditional callbacks.
+ **Non-blocking:** Coroutines make it easy to perform long-running tasks without blocking the main thread.
+ **Structured concurrency:** Coroutines have a well-defined scope and lifecycle, which helps to avoid problems like leaks and orphaned coroutines. 
+ **Cancellation:** Coroutines can immediately cancel a request and free up resources.
+ **Performance:** Coroutines are lightweight and don't block threads.
+
+
