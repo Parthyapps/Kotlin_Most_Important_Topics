@@ -135,6 +135,74 @@ In traditional asynchronous programming, you use threads, callbacks, or framewor
     Callback Hell: When callbacks are deeply nested.
     Complex Code: Managing multiple threads can be challenging and error-prone.
 
+- Coroutines are lightweight threads that allow us to execute concurrent code without blocking threads
+- it's essential to avoid blocking the main thread
+- A coroutine is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously
+- Kotlin provides three basic building blocks
+    - launch, async and runBlocking
+- launch: is used to fire and forgot coroutine.
+
+  ```kotlin
+          import kotlinx.coroutines.*
+          fun main() {
+            GlobalScope.launch { 
+                delay(1000L) 
+                println("Hello from Coroutine!")
+            }
+            println("Hello from Main Thread!")
+            Thread.sleep(2000L)
+          }
+  ```
+ - async is used when you need a result computed in a coroutine.
+ ```kotlin
+    import kotlinx.coroutines.*
+    fun main() {
+    GlobalScope.launch {
+        val result = async { 
+            computeResult() 
+        }
+        println("Computed result: ${result.await()}")
+    }
+    Thread.sleep(2000L)
+    }
+    suspend fun computeResult(): Int {
+    delay(1000L)
+    return 42
+    }
+ ```
+- runBlocking is a bridge between non-coroutine world and coroutine world.
+-  ```kotlin
+   import kotlinx.coroutines.*
+
+    fun main() = runBlocking { 
+    launch { 
+        delay(1000L) 
+        println("Hello from Coroutine!")
+    }
+    println("Hello from Main Thread!")
+    }
+   In this code, we’re starting a main coroutine using runBlocking, and inside this coroutine, we're launching a new coroutine.
+   
+- Coroutine Context and Dispatchers
+- Every coroutine in Kotlin has a context associated with it, which is a set of various elements. The key elements in this set are Job of the coroutine and its dispatcher.
+- Dispatchers.Main — for UI-related tasks.
+- Dispatchers.IO — for input/output tasks, like reading or writing from/to a database, making network calls, or reading/writing files.
+- Dispatchers.Default — for CPU-intensive tasks, like sorting large lists or doing complex computations.
+  ``` kotlin
+  import kotlinx.coroutines.*
+    fun main() = runBlocking {
+    launch(Dispatchers.IO) { 
+        println("IO: ${Thread.currentThread().name}")
+    }
+    launch(Dispatchers.Default) { 
+        println("Default: ${Thread.currentThread().name}")
+    }
+    launch(Dispatchers.Main) { 
+        println("Main: ${Thread.currentThread().name}")
+    }
+    }
+
+
 Coroutines make asynchronous programming easier by allowing your code to run asynchronously while still being sequential and structured like synchronous code.
 - Suspend Functions:
     A suspend function is a special type of function that can suspend its execution and resume later. These functions are the building blocks of coroutines
@@ -177,5 +245,50 @@ Coroutines make asynchronous programming easier by allowing your code to run asy
   - **Structured concurrency:** Coroutines have a well-defined scope and lifecycle, which helps to avoid problems like leaks and orphaned coroutines. 
   - **Cancellation:** Coroutines can immediately cancel a request and free up resources.
   - **Performance:** Coroutines are lightweight and don't block threads.
+
+## kotlin coroutines
+- There are basically 3 scopes in Kotlin coroutines:
+- 1.Global Scope.
+- 2.LifeCycle Scope.
+- 3.ViewModel Scope
+
+## Kotlin acesding order using for loops
+``` kotlin
+fun main(){
+    val numbers = listOf(20, 18, 7, 10, 3, -12, 2, 1, -11, 15, -10, -5, -1, -19)
+    val sortedNumbers = sortnumber(numbers)
+    println(sortedNumbers)
+}
+
+fun sortnumber (numbers: List<Int>): List<Int>{
+    val mutableNumbers = numbers.toMutableList()
+    val n = mutableNumbers.size
+    for (i in 0 until n -1 ){
+       for (j in 0 until n - i - 1 ) {
+           if (mutableNumbers[j] > mutableNumbers[j+1]){
+               val temp = mutableNumbers[j]
+              mutableNumbers[j] = mutableNumbers[j+1]
+              mutableNumbers[j +1] = temp
+           }
+       }
+    }
+    return mutableNumbers
+}
+
+```
+## Remove Vowel in the string
+``` kotlin
+fun main() {
+   var string = "Welcome to Parthibhan!.."
+    val result = removeVowels(string)
+    println(result)
+}
+fun removeVowels(string: String): String{   
+    val vowels = "aeiouAEIOU"
+    return string.filter{
+        char-> char !in vowels
+    }
+}
+```
 
 
