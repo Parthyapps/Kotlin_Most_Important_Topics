@@ -106,6 +106,11 @@ val age = 20
 val result = age.takeUnless { it < 18 } ?: "Underage"  
 println(result) // 20
 ```
+- let 🧑‍🔧: Execute a block of code within a context object.
+- run ▶️: Execute code blocks and return results.
+- Smart Casts 🎭: Automatically cast variables based on type checks.
+- apply 🔧: Configure objects in a clean, readable manner.
+- Inference 🧠: Let Kotlin deduce variable types for you.
 
 # Extensions and Infix Functions
 - Extension functions allow you to add new functionality to existing classes without altering their source code.
