@@ -63,6 +63,21 @@ val name: String = "Kotlin"
 var age: Int = 5
 ```
 - Kotlin has various built-in data types such as String, Int, Double, and Boolean for storing different kinds of values.
+
+# When 
+- Explanation: A versatile conditional expression that can replace if-else chains.
+  ```kotlin
+  val result = when (x) {
+    1 -> "One"
+    2 -> "Two"
+    else -> "Other" 
+   }
+  ```
+
+# forEach
+- Explanation: Iterates through each element in a collection.
+- ``` listOf(1, 2, 3).forEach { println(it) } ```
+  
 # Data Classes and Collections
 - Data classes are used to hold data. They automatically generate useful methods like toString(), equals(), and hashCode().
 
