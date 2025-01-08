@@ -88,21 +88,34 @@ var age: Int = 5
  ```
 # Collections
 - Kotlin provides rich collection functions such as filter, map, and reduce for working with data.
-
+# Filter 🎯: Select specific elements from a collection based on conditions.
 ```kotlin
  val numbers = listOf(1, 2, 3, 4, 5)
 val filtered = numbers.filter { it > 2 }
 println(filtered) // Output: [3, 4, 5]
 ```
+# Reduce ➗: Aggregate a collection into a single value.
+  ```kotlin
+     val numbers = listOf(1, 2, 3, 4)  
+     val sum = numbers.reduce { acc, num -> acc + num }  
+     println(sum) // 10
+  ```
+# takeUnless ❌: Execute code unless a condition is true.
+ ```kotlin
+val age = 20  
+val result = age.takeUnless { it < 18 } ?: "Underage"  
+println(result) // 20
+```
+
 # Extensions and Infix Functions
 - Extension functions allow you to add new functionality to existing classes without altering their source code.
-```kotlin
-  fun String.addExclamation(): String {
-    return this + "!"
-}
-val excited = "Hello".addExclamation()
-println(excited) // Output: Hello!
-```
+    ```kotlin
+      fun String.addExclamation(): String {
+        return this + "!"
+    }
+    val excited = "Hello".addExclamation()
+    println(excited) // Output: Hello!
+   ```
 - Infix functions provide a way to call functions in a more natural language style, enhancing readability.
 ```kotlin
   infix fun Int.times(str: String) = str.repeat(this)
@@ -124,7 +137,7 @@ println(excited) // Output: Hello!
       is Result.Failure -> println(result.error)
   }
   ```
-# Higher-Order Functions
+# Higher-Order Functions - Pass functions as a parameter or return them
 Reusability: The processStudents function can be reused with different filtering and transformation logic.
 Readability: The code becomes more readable and expressive, as the logic is encapsulated within well-defined functions.
 Functional Programming: This approach aligns with functional programming principles, allowing for concise and clear code.
