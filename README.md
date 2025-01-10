@@ -106,6 +106,20 @@ println(result) // 20
   val result = 2 times "Bye "
   println(result) // Output: Bye Bye 
 ```
+
+# inline - Avoids runtime overhead for higher-order functions.
+
+    ```kotlin
+   inline fun calculate(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+       return operation(a, b)
+   }
+   
+   fun main() {
+       val result = calculate(5, 3) { x, y -> x + y }
+       println("Result: $result") // Output: Result: 8
+   }```
+
+
 # Sealed Classes
 - Sealed classes restrict class hierarchies to a limited set of subclasses, making them useful for representing state or results.
   ```kotlin
