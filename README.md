@@ -178,6 +178,7 @@ Coroutines make asynchronous programming easier by allowing your code to run asy
    - Dispatchers.Default: Used for CPU-intensive tasks.
    - Dispatchers.Unconfined: Runs on the caller thread until suspension.
 
+launch
   ```kotlin
           import kotlinx.coroutines.*
           fun main() {
@@ -219,25 +220,9 @@ Coroutines make asynchronous programming easier by allowing your code to run asy
     }
    In this code, we’re starting a main coroutine using runBlocking, and inside this coroutine, we're launching a new coroutine.
    
-- Coroutine Context and Dispatchers
+- Coroutine Context
+- withcontext : Helps to switch between different coroutine dispatchers (e.g., from Dispatchers.IO to Dispatchers.Main). (Performing background tasks on Dispatchers.IO and updating the UI on Dispatchers.Main.)
 - Every coroutine in Kotlin has a context associated with it, which is a set of various elements. The key elements in this set are Job of the coroutine and its dispatcher.
-- Dispatchers.Main — for UI-related tasks.
-- Dispatchers.IO — for input/output tasks, like reading or writing from/to a database, making network calls, or reading/writing files.
-- Dispatchers.Default — for CPU-intensive tasks, like sorting large lists or doing complex computations.
-  ``` kotlin
-  import kotlinx.coroutines.*
-    fun main() = runBlocking {
-    launch(Dispatchers.IO) { 
-        println("IO: ${Thread.currentThread().name}")
-    }
-    launch(Dispatchers.Default) { 
-        println("Default: ${Thread.currentThread().name}")
-    }
-    launch(Dispatchers.Main) { 
-        println("Main: ${Thread.currentThread().name}")
-    }
-    }
-
 - Job
    A Job represents a coroutine and allows you to manage its lifecycle (e.g., start, cancel, wait for completion).
    You can cancel a Job to stop the coroutine.
@@ -267,11 +252,12 @@ Coroutines make asynchronous programming easier by allowing your code to run asy
   - **Cancellation:** Coroutines can immediately cancel a request and free up resources.
   - **Performance:** Coroutines are lightweight and don't block threads.
 
-## kotlin coroutines
+## Coroutines scopes
 - There are basically 3 scopes in Kotlin coroutines:
-- 1.Global Scope.
-- 2.LifeCycle Scope.
-- 3.ViewModel Scope
+- 1.Global Scope - Not tied up with any lifecycle. Task run for entire app lifecycle until we cancel manually.( No lifecycle awareness, can lead to memory leaks or unmanaged resources.)
+- 2.LifeCycle Scope. - Lifecycle aware and tied with Activity , fragment. coroutines are cancelled when activity reaches destory state.(Useful for UI-related tasks, such as animations, fetching data for the UI, or updating LiveData.)
+- 3.ViewModel Scope - Lifecycle-aware scope tied to the ViewModel.Coroutines are automatically cancelled when the ViewModel is cleared.( Ideal for long-running tasks like API calls or database operations in ViewModel that survive configuration changes.)
+- CoroutineScope: Fully customizable; used for independent tasks with manual control.
   
 
 ## Kotlin acesding order using for loops
