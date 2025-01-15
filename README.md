@@ -107,7 +107,9 @@ println(result) // 20
   println(result) // Output: Bye Bye 
 ```
 
-# inline - Avoids runtime overhead for higher-order functions.
+# inline -
+
+The inline keyword improves performance by avoiding function call overhead, especially for higher-order functions.
 
    ```kotlin
     inline fun calculate(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
