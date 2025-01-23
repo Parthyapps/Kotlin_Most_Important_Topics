@@ -85,7 +85,7 @@ println(result) // 20
 ```
 # Scope function in kotlin
 
-- let : The let function is frequently used for null safety calls. For null safety, use the safe call operator(?.) with ‘let'. It only runs the block with a non-null value.
+- let :(if it is null only it will run,for null checks we will use ) The let function is frequently used for null checks. For null safety, use the safe call operator(?.) with ‘let'. It only runs the block with a non-null value.
 - apply : “Apply these to the object,” as the name suggests. It can be used to operate on receiver object members, primarily to initialise them.
 - with : When calling functions on context objects without supplying the lambda result, ‘with' is recommended.
 - run : The ‘run' function is a combination of the ‘let' and ‘with' functions. When the object lambda involves both initialization and computation of the return value, this is   the method to use. We can use run to make null safety calls as well as other calculations.
