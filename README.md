@@ -96,7 +96,6 @@ var age: Int = 5
     val result = age.takeUnless { it < 18 } ?: "Underage"  
     println(result) // 20
    ```
-re’s your Kotlin Scope Functions overview in Markdown (.md) format with concise key points:
 
 # 🚀 Scope Functions in Kotlin  
 
@@ -163,47 +162,32 @@ Kotlin provides **scope functions** to simplify object operations. Here’s a qu
      }
  ```
 # Companion Object
-- A companion object in Kotlin is an object declared inside a class that behaves like a static member in Java.
-- Key Point: Every class can have at most one companion object.
-- Companion Objects are tied to a class
-- // Access without creating an instance
-- Limit: A class can have only one companion object.
--         const val CONSTANT = "Static Value"
-Why? The companion object is a way to provide static-like behavior in Kotlin, and Kotlin restricts it to one per class for simplicity and clarity.
-Where to Use?
-
-    To hold static functions or properties related to the class.
-    For factory methods or constants associated with the class.
+- Declared inside a class, behaves like a static member in Java.
+- Key Point: Only one companion object per class.
+- Tied to a class, accessible without creating an instance.
+- Used for static functions, properties, factory methods, or constants.
+- Example: `const val CONSTANT = "Static Value"`
 
 # Singleton Class
-- A singleton class ensures that only one instance of the class is created throughout the application's lifecycle.
-- Key Point: A singleton is a globally accessible instance.
-- Limit: You can have as many singleton classes as you need in your application.
-Why? Singleton classes are independent objects and are not tied to a specific class. They are useful whenever you need a single global instance of a class.
-Where to Use?
-
-    For managing globally shared resources like database connections, logging, or network clients.
+- Ensures only one instance of the class exists throughout the application.
+- Key Point: Globally accessible instance.
+- No limit on the number of singleton classes in an application.
+- Used for managing shared resources like database connections, logging, or network clients.
 
 # Emit
-  - emit is a suspending function, meaning it must be called within a coroutine or another suspending function.
-  - It’s often used inside a flow builder or any custom implementation where you generate a flow of data dynamically.
+- A suspending function used within coroutines or flow builders.
+- Dynamically generates a flow of data.
+- Commonly used in custom flow implementations.
 
 # Sealed Classes
-- Sealed classes restrict class hierarchies to a limited set of subclasses, making them useful for representing state or results.
-- Where to Use a Sealed Class
-
-    Representing States:
-        Example: Success, Error, Loading states in network calls.
-    Handling Results:
-        Example: Wrapping API responses with success or failure types.
-    Modeling Finite Options:
-        Example: User actions, navigation destinations, or specific operations.
-    Event Handling in MVVM:
-        Example: Events emitted from the ViewModel to the UI.
+- Restrict class hierarchies to a limited set of subclasses.
+- Useful for representing states, results, or finite options.
+- Example: Success, Error, Loading states in network calls.
+- Example Code:
   ```kotlin
   sealed class Result {
-    data class Success(val data: String) : Result()
-    data class Failure(val error: String) : Result()
+      data class Success(val data: String) : Result()
+      data class Failure(val error: String) : Result()
   }
   fun fetchData(): Result {
       return Result.Success("Data fetched successfully")
@@ -212,7 +196,7 @@ Where to Use?
       is Result.Success -> println(result.data)
       is Result.Failure -> println(result.error)
   }
-  ```
+
 # Higher-Order Functions - Pass functions as a parameter or return them as function
 Advantage:
 - code Reusability
