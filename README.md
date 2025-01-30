@@ -107,6 +107,19 @@ Kotlin provides **scope functions** to simplify object operations. Here’s a qu
 ## 🔹 `apply`  
 ✔ Used for **object initialization**  
 ✔ Modifies properties and returns the **same object**  
+   ```kotlin
+ // Example 1: Using `apply` to initialize a TextView
+        val textView = TextView(this).apply {
+            text = "Hello, Kotlin Scope Functions!"
+            textSize = 18f
+            setTextColor(Color.BLACK)
+            gravity = Gravity.CENTER
+        }
+  ```
+
+## 🔹 `also`  
+✔ Performs **extra operations** after initialization  
+✔ Returns the **same object**  
 
 ## 🔹 `with`  
 ✔ Used when calling multiple functions on an object  
@@ -116,10 +129,6 @@ Kotlin provides **scope functions** to simplify object operations. Here’s a qu
 ✔ Combines **`let` + `with`**  
 ✔ Used for **initialization + computation**  
 ✔ Supports **null safety checks**  
-
-## 🔹 `also`  
-✔ Performs **extra operations** after initialization  
-✔ Returns the **same object**  
 
 # Kotlin: lateinit vs lazy – When to Use What?
 -🔹 When to Use lateinit
