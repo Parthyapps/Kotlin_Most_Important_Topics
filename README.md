@@ -151,13 +151,28 @@ Kotlin provides **scope functions** to simplify object operations. Here’s a qu
            fun String.addExclamation(): String {
              return this + "!"
            }
+
+             // Add an extension function to View to show a toast
+          fun View.showToast(message: String, duration: Int = Toast.LENGTH_SHORT) {
+              Toast.makeText(context, message, duration).show()
+          }
+          
+          // Usage in an Activity
+          button.setOnClickListener {
+              it.showToast("Button clicked!")
+          }
    ```
-# Infix functions provide a way to call functions in a more natural language style, enhancing readability.
-   ```kotlin
-       infix fun Int.times(str: String) = str.repeat(this)
-       val result = 2 times "Bye "
-       println(result) // Output: Bye Bye 
-   ```
+# Infix 
+An infix function allows you to call a function in an infix notation (i.e., without using a dot . or parentheses ()).
+      ```kotlin// Define an infix function
+            fun main() {
+                val result = 5 add 10 // Infix notation
+                println(result) // Output: 15
+            }
+            infix fun Int.add(value: Int): Int {
+                return this + value
+            }         
+      ```
 
 # Inline
   - ✅ The inline keyword improves performance by avoiding function call overhead, especially for higher-order functions.
