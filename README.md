@@ -25,78 +25,6 @@ Provides a built-in range type for loops, conditions, and collections.
 ## 🔟 Companion Objects  
 Acts as a Kotlin alternative to static methods in Java, with class-level properties and functions.  
 
-# Basic Syntax and Fundamentals
-- Variables and Constants: Understanding **var (mutable) and val (immutable)** for declaring variables.
-- Data Types: Familiarity with basic types such as **Int, Double, String, Boolean**, and their usage.
-- Control Flow: Mastery of **if, when, for, while, and do-while** statements for controlling the program flow.
- ```kotlin
-          val number = 10
-        if (number > 5) {
-            println("Greater than 5")
-        } else {
-            println("Less than or equal to 5")
-        }
-        when (number) {
-            1 -> println("One")
-            2 -> println("Two")
-            in 3..10 -> println("Between 3 and 10")
-            else -> println("Greater than 10")
-        }
-```
-
-```kotlin
-val name: String = "Kotlin"
-var age: Int = 5
-```
-- Kotlin has various built-in data types such as String, Int, Double, and Boolean for storing different kinds of values.
-
-# When 
-- Explanation: A versatile conditional expression that can replace if-else chains.
-  ```kotlin
-  val result = when (x) {
-    1 -> "One"
-    2 -> "Two"
-    else -> "Other" 
-   }
-  ```
-
-# forEach
-- Explanation: Iterates through each element in a collection.
-- ``` listOf(1, 2, 3).forEach { println(it) } ```
-  
-# Data Classes and Collections
-- Data classes are used to hold data. They automatically generate useful methods like toString(), equals(), and hashCode().
-
-    ```kotlin  
-      data class User(val name: String, val age: Int)
-      val user1 = User("Alice", 30)
-      println(user1) // Output: User(name=Alice, age=30)
-     ```
-
-# Collections
-- Kotlin provides rich collection functions such as filter, map, and reduce for working with data.
-
-# Filter 🎯: Select specific elements from a collection based on conditions.
-   ```kotlin
-     val numbers = listOf(1, 2, 3, 4, 5)
-    val filtered = numbers.filter { it > 2 }
-    println(filtered) // Output: [3, 4, 5]
-   ```
-
-# Reduce ➗: Aggregate a collection into a single value.
-   ```kotlin
-      val numbers = listOf(1, 2, 3, 4)  
-      val sum = numbers.reduce { acc, num -> acc + num }  
-      println(sum) // 10
-   ```
-
-# takeUnless ❌: Execute code unless a condition is true.
-   ```kotlin
-    val age = 20  
-    val result = age.takeUnless { it < 18 } ?: "Underage"  
-    println(result) // 20
-   ```
-
 # 🚀 Scope Functions in Kotlin  
 
 Kotlin provides **scope functions** to simplify object operations. Here’s a quick guide:  
@@ -358,7 +286,80 @@ launch
 - 2.LifeCycle Scope. - Lifecycle aware and tied with Activity , fragment. coroutines are cancelled when activity reaches destory state.(Useful for UI-related tasks, such as animations, fetching data for the UI, or updating LiveData.)
 - 3.ViewModel Scope - Lifecycle-aware scope tied to the ViewModel.Coroutines are automatically cancelled when the ViewModel is cleared.( Ideal for long-running tasks like API calls or database operations in ViewModel that survive configuration changes.)
 - CoroutineScope: Fully customizable; used for independent tasks with manual control.
+
+# Basic Syntax and Fundamentals
+- Variables and Constants: Understanding **var (mutable) and val (immutable)** for declaring variables.
+- Data Types: Familiarity with basic types such as **Int, Double, String, Boolean**, and their usage.
+- Control Flow: Mastery of **if, when, for, while, and do-while** statements for controlling the program flow.
+ ```kotlin
+          val number = 10
+        if (number > 5) {
+            println("Greater than 5")
+        } else {
+            println("Less than or equal to 5")
+        }
+        when (number) {
+            1 -> println("One")
+            2 -> println("Two")
+            in 3..10 -> println("Between 3 and 10")
+            else -> println("Greater than 10")
+        }
+```
+
+```kotlin
+val name: String = "Kotlin"
+var age: Int = 5
+```
+- Kotlin has various built-in data types such as String, Int, Double, and Boolean for storing different kinds of values.
+
+# When 
+- Explanation: A versatile conditional expression that can replace if-else chains.
+  ```kotlin
+  val result = when (x) {
+    1 -> "One"
+    2 -> "Two"
+    else -> "Other" 
+   }
+  ```
+
+# forEach
+- Explanation: Iterates through each element in a collection.
+- ``` listOf(1, 2, 3).forEach { println(it) } ```
   
+# Data Classes and Collections
+- Data classes are used to hold data. They automatically generate useful methods like toString(), equals(), and hashCode().
+
+    ```kotlin  
+      data class User(val name: String, val age: Int)
+      val user1 = User("Alice", 30)
+      println(user1) // Output: User(name=Alice, age=30)
+     ```
+
+# Collections
+- Kotlin provides rich collection functions such as filter, map, and reduce for working with data.
+
+# Filter 🎯: Select specific elements from a collection based on conditions.
+   ```kotlin
+     val numbers = listOf(1, 2, 3, 4, 5)
+    val filtered = numbers.filter { it > 2 }
+    println(filtered) // Output: [3, 4, 5]
+   ```
+
+# Reduce ➗: Aggregate a collection into a single value.
+   ```kotlin
+      val numbers = listOf(1, 2, 3, 4)  
+      val sum = numbers.reduce { acc, num -> acc + num }  
+      println(sum) // 10
+   ```
+
+# takeUnless ❌: Execute code unless a condition is true.
+   ```kotlin
+    val age = 20  
+    val result = age.takeUnless { it < 18 } ?: "Underage"  
+    println(result) // 20
+   ```
+
+
 
 ## Kotlin acesding order using for loops
 ``` kotlin
