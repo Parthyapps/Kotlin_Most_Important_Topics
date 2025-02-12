@@ -7,7 +7,7 @@
 ## 1️⃣ Conciseness  
 Kotlin reduces boilerplate code with type inference, smart casts, and data classes.  
 ## 2️⃣ Null Safety  
-Eliminates NullPointerException by distinguishing between nullable and non-nullable types.  
+Nullable Types: Understanding the concept of nullability and using safe calls (?.), the Elvis operator (?:), and the non-null assertion operator (!!).
 ## 3️⃣ Extension Functions  
 Add new functions to existing classes without modifying their source code.  
 ## 4️⃣ Interoperability  
@@ -24,6 +24,9 @@ Automatically infers types, reducing explicit type checks.
 Provides a built-in range type for loops, conditions, and collections.  
 ## 🔟 Companion Objects  
 Acts as a Kotlin alternative to static methods in Java, with class-level properties and functions.  
+## Error Handling
+Exceptions: Understanding try-catch blocks, throwing exceptions, and creating custom exceptions.
+Sealed Classes: Using sealed classes for representing restricted class hierarchies, often used in error handling.
 
 # 🚀 Scope Functions in Kotlin  
 
