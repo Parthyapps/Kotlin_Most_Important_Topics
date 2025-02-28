@@ -24,10 +24,17 @@ Kotlin provides **scope functions** to simplify object operations. Here’s a qu
 ## 🔹 `let`  
 ✔ Used for **null checks** (`?.let { }`)  
 ✔ Executes block only if the object is **non-null**  
-
+```kotlin
+fun main(){  
+   var name : String? = "Kotlin let check"
+   name?.let { println(it) } //prints Kotlin let null check
+   name = null
+   name?.let { println(it) } // nothing will print
+}
+```
 ## 🔹 `apply`  
 ✔ Used for **object initialization**  
-✔ Modifies properties and returns the **same object**  
+✔ ✅ Modifies the **object** and **returns the same object**.
    ```kotlin
  // Example 1: Using `apply` to initialize a TextView
       data class Student (var name: String = "", var age: Int=0)
@@ -41,17 +48,37 @@ Kotlin provides **scope functions** to simplify object operations. Here’s a qu
   ```
 
 ## 🔹 `also`  
-✔ Performs **extra operations** after initialization  
+✔ Used for performing additional actions on an object
 ✔ Returns the **same object**  
-
+```kotlin
+      val list = mutableListOf(1, 2, 3)
+      list.also {
+          it.add(4)
+          Log.d("ListDebug", "List after adding: $it")
+      }
+```
 ## 🔹 `with`  
-✔ Used when calling multiple functions on an object  
+✔ Use with when we want to perform operations on an existing object.
 ✔ **Does not return** the object but executes operations  
+```kotlin
+      val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
+      with(recyclerView) {
+          layoutManager = LinearLayoutManager(context)
+          adapter = NewsAdapter(newsList)
+          setHasFixedSize(true)
+      }
+```
 
 ## 🔹 `run`  
 ✔ Combines **`let` + `with`**  
-✔ Used for **initialization + computation**  
+✔ Use run when you need to perform multiple operations and return a result.
 ✔ Supports **null safety checks**  
+```kotlin
+val userName = getSharedPreferences("MyPrefs", MODE_PRIVATE).run {
+    getString("USER_NAME", "Guest")
+}
+textView.text = "Hello, $userName"
+```
 
 # Kotlin: lateinit vs lazy – When to Use What?
 -🔹 When to Use lateinit
