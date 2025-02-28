@@ -30,12 +30,14 @@ Kotlin provides **scope functions** to simplify object operations. Here’s a qu
 ✔ Modifies properties and returns the **same object**  
    ```kotlin
  // Example 1: Using `apply` to initialize a TextView
-        val textView = TextView(this).apply {
-            text = "Hello, Kotlin Scope Functions!"
-            textSize = 18f
-            setTextColor(Color.BLACK)
-            gravity = Gravity.CENTER
-        }
+      data class Student (var name: String = "", var age: Int=0)
+      fun main(){
+          val student = Student().apply{
+              name = "parthi"
+              age = 23
+          }
+          println(student)
+      }
   ```
 
 ## 🔹 `also`  
