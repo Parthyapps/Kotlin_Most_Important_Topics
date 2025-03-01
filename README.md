@@ -30,13 +30,19 @@ fun main(){
    name?.let { println(it) } //prints Kotlin let null check
    name = null
    name?.let { println(it) } // nothing will print
+
+   liveData.observe(viewLifecycleOwner, Observer { data ->
+       data?.let { nonNullData ->
+           // Process non-null data
+           updateUI(nonNullData)
+       }
+   })
 }
 ```
 ## 🔹 `apply`  
 ✔ Used for **object initialization**  
-✔ ✅ Modifies the **object** and **returns the same object**.
+✔ Modifies the **object** and **returns the same object**.
    ```kotlin
- // Example 1: Using `apply` to initialize a TextView
       data class Student (var name: String = "", var age: Int=0)
       fun main(){
           val student = Student().apply{
@@ -58,7 +64,7 @@ fun main(){
       }
 ```
 ## 🔹 `with`  
-✔ Use with when we want to perform operations on an existing object.
+✔ Used for grouping operations on an object.
 ✔ **Does not return** the object but executes operations  
 ```kotlin
       val recyclerView = findViewById<RecyclerView>(R.id.recyclerView)
@@ -71,6 +77,7 @@ fun main(){
 
 ## 🔹 `run`  
 ✔ Combines **`let` + `with`**  
+✔ Used for object configuration and returning a result.
 ✔ Use run when you need to perform multiple operations and return a result.
 ✔ Supports **null safety checks**  
 ```kotlin
@@ -78,6 +85,13 @@ val userName = getSharedPreferences("MyPrefs", MODE_PRIVATE).run {
     getString("USER_NAME", "Guest")
 }
 textView.text = "Hello, $userName"
+
+val result = run {
+    val a = 10
+    val b = 20
+    a + b // Returns the result of the lambda
+}
+println("Result: $result") // Output: Result: 30
 ```
 
 # Kotlin: lateinit vs lazy – When to Use What?
