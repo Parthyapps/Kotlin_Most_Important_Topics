@@ -97,16 +97,18 @@ println("Result: $result") // Output: Result: 30
 # Kotlin: lateinit vs lazy – When to Use What?
 -🔹 When to Use lateinit
 - **Use lateinit when we dont know the initial value at the time class creation.**
-- ✅ Used to initialize a variable later
+- ✅ Can be used with var (mutable)
 - ✅ lateinit cannot used with nullabale types
-- ✅ Works only with var (mutable)
+- ✅ Works with non primitive data types only
 - ✅ lateinit cannot be used with primitive type (Int, char, float)
+-     lateinit var binding: ActivityMainBinding 
 
 - 🔹 When to Use lazy
-- ✅ Used lazy when we know the initial value.but want to initialze only when it needed.
-- ✅ Works only with val (read-only)
-  ✅ lazy can be used with primitive type (Int, char, float)
-- ✅ Best for heavy objects that depend on internal class values
+- ✅ Can be used wiht only val (immutable)
+- ✅ Will occupy storage only when it get used
+- ✅ lazy properties are checked for initialization at compile time.
+- ✅ lazy can be used with primitive type (Int, char, float)
+- ✅ for constant variable use lazy and value not change 
   
 # Extensions and Infix Functions
 - ✅ Extension functions allow you to add new functionality to existing classes without altering their source code.
