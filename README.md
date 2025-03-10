@@ -3,18 +3,6 @@
 - Developed by **JetBrains**, it is widely used for **Android development** and other applications.  
 
 # Kotlin Fundamentals
-# 🚀 Key Features of Kotlin
-## 1️⃣ Conciseness - Kotlin reduces boilerplate code with type inference, smart casts, and data classes.  
-## 2️⃣ Null Safety - Nullable Types: Understanding the concept of nullability and using safe calls (?.), the Elvis operator (?:), and the non-null assertion operator (!!).
-## 3️⃣ Extension Functions - Add new functions to existing classes without modifying their source code.  
-## 4️⃣ Interoperability - Fully compatible with Java, making migration seamless.  
-## 5️⃣ Coroutines - Simplifies asynchronous programming with lightweight, efficient threading.  
-## 6️⃣ Data Classes - Auto-generates `equals()`, `hashCode()`, `toString()`, and more for concise data modeling.  
-## 7️⃣ Functional Programming - Supports lambdas, higher-order functions, and immutable data structures.  
-## 8️⃣ Smart Casts - Automatically infers types, reducing explicit type checks.  
-## 9️⃣ Ranges - Provides a built-in range type for loops, conditions, and collections.  
-## 🔟 Companion Objects - Acts as a Kotlin alternative to static methods in Java, with class-level properties and functions.  
-## Error Handling
 Exceptions: Understanding try-catch blocks, throwing exceptions, and creating custom exceptions.
 Sealed Classes: Using sealed classes for representing restricted class hierarchies, often used in error handling.
 
@@ -345,6 +333,19 @@ launch
 - 2.LifeCycle Scope. - Lifecycle aware and tied with Activity , fragment. coroutines are cancelled when activity reaches destory state.(Useful for UI-related tasks, such as animations, fetching data for the UI, or updating LiveData.)
 - 3.ViewModel Scope - Lifecycle-aware scope tied to the ViewModel.Coroutines are automatically cancelled when the ViewModel is cleared.( Ideal for long-running tasks like API calls or database operations in ViewModel that survive configuration changes.)
 - CoroutineScope: Fully customizable; used for independent tasks with manual control.
+
+# 🚀 Key Features of Kotlin
+## 1️⃣ Conciseness - Kotlin reduces boilerplate code with type inference, smart casts, and data classes.  
+## 2️⃣ Null Safety - Nullable Types: Understanding the concept of nullability and using safe calls (?.), the Elvis operator (?:), and the non-null assertion operator (!!).
+## 3️⃣ Extension Functions - Add new functions to existing classes without modifying their source code.  
+## 4️⃣ Interoperability - Fully compatible with Java, making migration seamless.  
+## 5️⃣ Coroutines - Simplifies asynchronous programming with lightweight, efficient threading.  
+## 6️⃣ Data Classes - Auto-generates `equals()`, `hashCode()`, `toString()`, and more for concise data modeling.  
+## 7️⃣ Functional Programming - Supports lambdas, higher-order functions, and immutable data structures.  
+## 8️⃣ Smart Casts - Automatically infers types, reducing explicit type checks.  
+## 9️⃣ Ranges - Provides a built-in range type for loops, conditions, and collections.  
+## 🔟 Companion Objects - Acts as a Kotlin alternative to static methods in Java, with class-level properties and functions.  
+## Error Handling
 
 # Basic Syntax and Fundamentals
 - Variables and Constants: Understanding **var (mutable) and val (immutable)** for declaring variables.
