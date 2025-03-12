@@ -152,18 +152,19 @@ An infix function allows you to call a function in an infix notation (i.e., with
 - Example: `const val CONSTANT = "Static Value"`
 
 # Singleton Class
-- Ensures only one instance of the class exists throughout the application.
+- A singleton is a design pattern that ensures only one instance of a class is created and provides a global access point to that instance.
 - Key Point: Globally accessible instance.
 - No limit on the number of singleton classes in an application.
 - Used for managing shared resources like database connections, logging, or network clients.
 
 # Emit
-- A suspending function used within coroutines or flow builders.
+- emit is used in Kotlin Flow to emit values asynchronously in a coroutine.
 - Dynamically generates a flow of data.
 - Commonly used in custom flow implementations.
 
 # Sealed Classes
-- Restrict class hierarchies to a limited set of subclasses.
+It’s useful when working with state management or representing different types of results.
+- ✔ Restricts inheritance (only subclasses in the same file)
 - Useful for representing states, results, or finite options.
 - Example: Success, Error, Loading states in network calls.
 - Example Code:
@@ -180,7 +181,8 @@ An infix function allows you to call a function in an infix notation (i.e., with
       is Result.Failure -> println(result.error)
   }
 
-# Higher-Order Functions - Pass functions as a parameter or return them as function
+# Higher-Order Functions 
+- Pass functions as a parameter or return them as function
 Advantage:
 - code Reusability
 - Reducing Boilerplate Code:
