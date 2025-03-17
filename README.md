@@ -339,6 +339,8 @@ launch
 - 2.LifeCycle Scope. - Lifecycle aware and tied with Activity , fragment. coroutines are cancelled when activity reaches destory state.(Useful for UI-related tasks, such as animations, fetching data for the UI, or updating LiveData.)
 - 3.ViewModel Scope - Lifecycle-aware scope tied to the ViewModel.Coroutines are automatically cancelled when the ViewModel is cleared.( Ideal for long-running tasks like API calls or database operations in ViewModel that survive configuration changes.)
 - CoroutineScope: Fully customizable; used for independent tasks with manual control.
+- CoroutineScope -> Cancel whenever any of its children fail.
+- SupervisorScope -> If we want to continue with the other tasks even when one fails, we go with the supervisorScope. A supervisorScope won’t cancel other children when one of them fails.
 
 # 🚀 Key Features of Kotlin
 ## 1️⃣ Conciseness - Kotlin reduces boilerplate code with type inference, smart casts, and data classes.  
