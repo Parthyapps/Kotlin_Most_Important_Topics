@@ -226,12 +226,14 @@ fun add(a: Int, b: Int): Int {
 Coroutines make asynchronous programming easier by allowing your code to run asynchronously while still being sequential and structured like synchronous code.
 - Suspend Functions:
     - A suspend function is a special type of function that can suspend its execution and resume later. These functions are the building blocks of coroutines
-- Coroutine Builders:
+- **Coroutine Builders**:
     - Coroutines in Kotlin are created using coroutine builders like launch, async, and runBlocking.
     - launch: Starts a new coroutine but does not return a result.
     - async: Starts a new coroutine and returns a result via a Deferred object, which can be awaited using await().
       - await():Suspends the execution of the current coroutine until the result of the Deferred is ready.This ensures that all API calls complete before combining the results.
     - runBlocking: Blocks the current thread until all coroutines inside the block have finished executing. This is mainly used in the main function or for testing.
+    - withcontext(Dispatchers.IO) - switches to a different thread.
+      
 - Dispatchers
    - Dispatchers define on which thread a coroutine will run.
    - Dispatchers.Main: Runs on the main thread, typically used for UI updates in Android.
@@ -341,6 +343,16 @@ launch
 - CoroutineScope: Fully customizable; used for independent tasks with manual control.
 - CoroutineScope -> Cancel whenever any of its children fail.
 - SupervisorScope -> If we want to continue with the other tasks even when one fails, we go with the supervisorScope. A supervisorScope won’t cancel other children when one of them fails.
+
+## Delays & Timeouts
+- delay(1000l) - pause coroutine without blocking
+- withTimeout(5000L) - cancels if execution exceeds time
+- yield - allows other coroutines to run before resuming
+
+## Error handling
+- try {} catch {} - standard exception handling
+- supervisorscope - ensure child coroutine fails indepently
+- coroutineExceptionHandler - handles uncaught exception
 
 # 🚀 Key Features of Kotlin
 ## 1️⃣ Conciseness - Kotlin reduces boilerplate code with type inference, smart casts, and data classes.  
