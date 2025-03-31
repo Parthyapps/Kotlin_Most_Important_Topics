@@ -437,8 +437,6 @@ var age: Int = 5
     println(result) // 20
    ```
 
-
-
 ## Kotlin acesding order using for loops
 ``` kotlin
 fun main(){
@@ -477,14 +475,3 @@ fun removeVowels(string: String): String{
     }
 }
 ```
-1.clean architechture
-2.BroadCase
-3.Room
-4.Room Table how to migrate and not migrate 
-5.flow koin
-6.infix
-7.solid principle
-8.koin.
-sealed class , enum classes
-
-
