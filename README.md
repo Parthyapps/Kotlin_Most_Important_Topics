@@ -6,12 +6,11 @@
 Exceptions: Understanding try-catch blocks, throwing exceptions, and creating custom exceptions.
 Sealed Classes: Using sealed classes for representing restricted class hierarchies, often used in error handling.
 
+# Val & Const
 - val - (value) is a read-only variable that can be initialized at runtime.
 - const - const is a compile-time constant.The value is known at compile time, meaning it cannot be assigned dynamically.
 
-
 # 🚀 Scope Functions in Kotlin  
-
 Kotlin provides **scope functions** to simplify object operations. Here’s a quick guide:  
 ## 🔹 `let`  
 ✔ Used for **null checks** (`?.let { }`)  
@@ -224,7 +223,7 @@ fun add(a: Int, b: Int): Int {
 - A coroutine is a concurrency design pattern that you can use on Android to simplify code that executes asynchronously
 
 Coroutines make asynchronous programming easier by allowing your code to run asynchronously while still being sequential and structured like synchronous code.
-- Suspend Functions:
+- **Suspend Functions:**
     - A suspend function is a special type of function that can suspend its execution and resume later. These functions are the building blocks of coroutines
 - **Coroutine Builders**:
     - Coroutines in Kotlin are created using coroutine builders like launch, async, and runBlocking.
@@ -234,7 +233,7 @@ Coroutines make asynchronous programming easier by allowing your code to run asy
     - runBlocking: Blocks the current thread until all coroutines inside the block have finished executing. This is mainly used in the main function or for testing.
     - withcontext(Dispatchers.IO) - switches to a different thread.
       
-- Dispatchers
+- **Dispatchers**
    - Dispatchers define on which thread a coroutine will run.
    - Dispatchers.Main: Runs on the main thread, typically used for UI updates in Android.
    - Dispatchers.IO: Used for I/O operations (e.g., network calls, database operations).
@@ -303,8 +302,8 @@ launch
     val userScore = deferred.await() // Wait for the async result
     println("User's score is final $userScore")
     }
-- Coroutine Context
-- withcontext : Helps to switch between different coroutine dispatchers (e.g., from Dispatchers.IO to Dispatchers.Main). (Performing background tasks on Dispatchers.IO and updating the UI on Dispatchers.Main.)
+- **Coroutine Context**
+- **withcontext **: Helps to **switch between different coroutine dispatchers** (e.g., from Dispatchers.IO to Dispatchers.Main). (Performing background tasks on Dispatchers.IO and updating the UI on Dispatchers.Main.)
 - Every coroutine in Kotlin has a context associated with it, which is a set of various elements. The key elements in this set are Job of the coroutine and its dispatcher.
 - Job
    A Job represents a coroutine and allows you to manage its lifecycle (e.g., start, cancel, wait for completion).
@@ -329,7 +328,6 @@ launch
   Main: Job is cancelled.
   ```
 # Advantages of Coroutines
-  
   - **Non-blocking:** Coroutines make it easy to perform long-running tasks without blocking the main thread.
   - **Structured concurrency:** Coroutines have a well-defined scope and lifecycle, which helps to avoid problems like leaks and orphaned coroutines. 
   - **Cancellation:** Coroutines can immediately cancel a request and free up resources.
