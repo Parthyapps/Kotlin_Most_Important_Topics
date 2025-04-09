@@ -11,8 +11,10 @@ Exceptions: Understanding try-catch blocks, throwing exceptions, and creating cu
 Sealed Classes: Using sealed classes for representing restricted class hierarchies, often used in error handling.
 
 # Val & Const
-- val - (value) is a read-only variable that can be initialized at runtime.
-- const - const is a compile-time constant.The value is known at compile time, meaning it cannot be assigned dynamically.
+- var is a mutable variable — you can reassign values.
+- val - (value) is a read-only variable that can be initialized at runtime.For values that don’t change
+- const val is a compile-time constant and can only be used with top-level or object classes, not inside functions or regular classes.
+
 
 # 🚀 Scope Functions in Kotlin  
 Kotlin provides **scope functions** to simplify object operations. Here’s a quick guide:  
