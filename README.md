@@ -1,6 +1,10 @@
 # Kotlin Overview
 - Kotlin is a **statically typed** programming language that runs on the **Java Virtual Machine (JVM)**.  
-- Developed by **JetBrains**, it is widely used for **Android development** and other applications.  
+- Developed by **JetBrains**, it is widely used for **Android development** and other applications.
+- Built-in Null Safety (?, !!, ?:)
+- DSL Support - Natural DSL via lambdas/context receivers
+- Multiplatform - KMM supports Android, iOS, Web
+- Data Class - A data class in Kotlin is a special class meant to hold data
 
 # Kotlin Fundamentals
 Exceptions: Understanding try-catch blocks, throwing exceptions, and creating custom exceptions.
@@ -363,6 +367,8 @@ launch
 ## 8️⃣ Smart Casts - Automatically infers types, reducing explicit type checks.  
 ## 9️⃣ Ranges - Provides a built-in range type for loops, conditions, and collections.  
 ## 🔟 Companion Objects - Acts as a Kotlin alternative to static methods in Java, with class-level properties and functions.  
+## improved Multiplatform Support
+Now fully stable — Write once, run on JVM, JS, iOS, Linux, etc.
 ## Error Handling
 
 # Basic Syntax and Fundamentals
