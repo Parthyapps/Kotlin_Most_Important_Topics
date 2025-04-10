@@ -12,8 +12,13 @@ Sealed Classes: Using sealed classes for representing restricted class hierarchi
 
 # Val & Const
 - var is a mutable variable — you can reassign values.
-- val - (value) is a read-only variable that can be initialized at runtime.For values that don’t change
-- const val is a compile-time constant and can only be used with top-level or object classes, not inside functions or regular classes.
+- val - (value) is a read-only variable that can be initialized at runtime.  val cannot be reassigned
+**- val recyclerView: RecyclerView = findViewById(R.id.recycler_view)**
+- const val is Compile-Time Constant (Like static final in Java) and can only be used with top-level or object classes, not inside functions or regular classes.
+- object AppConfig {
+    const val BASE_URL = "https://api.example.com"
+    const val MAX_RETRY = 3
+}
 
 
 # 🚀 Scope Functions in Kotlin  
