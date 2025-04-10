@@ -21,6 +21,34 @@ Sealed Classes: Using sealed classes for representing restricted class hierarchi
 }
 
 
+# Kotlin: lateinit vs lazy – When to Use What?
+-🔹 When to Use lateinit
+- **Use lateinit when we dont know the initial value at the time class creation.**
+- ✅ Can be used with var (mutable)
+- ✅ lateinit cannot used with nullabale types
+- ✅ Works with non primitive data types only
+- ✅ lateinit cannot be used with primitive type (Int, char, float)
+-     lateinit var binding: ActivityMainBinding 
+
+- 🔹 When to Use lazy
+- ✅ Can be used with only val (immutable)
+- ✅ Delays initialization until used	
+- ✅ lazy properties are checked for initialization at compile time.
+- ✅ lazy can be used with primitive type (Int, char, float)
+- ✅ for constant variable use lazy and value not change
+- Initialization happens only when accessed, not before.
+```kotlin
+  val retrofit by lazy {
+    Retrofit.Builder()
+        .baseUrl("https://api.example.com")
+        .build()
+  }
+ ```
+# kotlin Delegates:
+- Kotlin provides property delegates to move logic outside the property itself using the by keyword.
+- Built-in delegates like lazy, observable, and notNull improve performance and state tracking.
+- lazy - Lazy Initialization, observable - Property Change Listener, vetoable - Conditionally Accept Change.
+
 # 🚀 Scope Functions in Kotlin  
 Kotlin provides **scope functions** to simplify object operations. Here’s a quick guide:  
 ## 🔹 `let`  
@@ -96,22 +124,6 @@ val result = run {
 println("Result: $result") // Output: Result: 30
 ```
 
-# Kotlin: lateinit vs lazy – When to Use What?
--🔹 When to Use lateinit
-- **Use lateinit when we dont know the initial value at the time class creation.**
-- ✅ Can be used with var (mutable)
-- ✅ lateinit cannot used with nullabale types
-- ✅ Works with non primitive data types only
-- ✅ lateinit cannot be used with primitive type (Int, char, float)
--     lateinit var binding: ActivityMainBinding 
-
-- 🔹 When to Use lazy
-- ✅ Can be used wiht only val (immutable)
-- ✅ Will occupy storage only when it get used
-- ✅ lazy properties are checked for initialization at compile time.
-- ✅ lazy can be used with primitive type (Int, char, float)
-- ✅ for constant variable use lazy and value not change 
-  
 # Extensions and Infix Functions
 - ✅ Extension functions allow you to add new functionality to existing classes without altering their source code.
    ```kotlin
