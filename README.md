@@ -4,7 +4,8 @@
 - Built-in Null Safety (?, !!, ?:)
 - DSL Support - Natural DSL via lambdas/context receivers
 - Multiplatform - KMM supports Android, iOS, Web
-- Data Class - A data class in Kotlin is a special class meant to hold data
+- Data Class - A data class is a special class in Kotlin designed to hold data (state)
+- while automatically generating useful methods like: toString(),equals() & hashCode(),copy()
 
 # Kotlin Fundamentals
 Exceptions: Understanding try-catch blocks, throwing exceptions, and creating custom exceptions.
