@@ -20,7 +20,6 @@ Sealed Classes: Using sealed classes for representing restricted class hierarchi
     const val MAX_RETRY = 3
 }
 
-
 # Kotlin: lateinit vs lazy – When to Use What?
 -🔹 When to Use lateinit
 - **Use lateinit when we dont know the initial value at the time class creation.**
@@ -123,6 +122,41 @@ val result = run {
 }
 println("Result: $result") // Output: Result: 30
 ```
+# Higher-Order Functions 
+- Pass functions as a parameter or return them as function
+Advantage:
+- code Reusability
+- Reducing Boilerplate Code:
+- Better Performance: Inline functions reduce the runtime overhead by inlining the logic during compilation, which is critical for performance-sensitive Android apps.
+- Flexibility
+- Improved Readability:
+ - Where to Use Higher-Order and Inline Functions in Android
+ -      1.View Click Listeners: Use higher-order functions to handle repetitive UI tasks, such as click listeners or touch event listeners.
+        2.Network Operations: Use higher-order functions to define common tasks like making API calls with callbacks.
+        3.Custom RecyclerView Adapters: use higher-order functions to define item click or long-click listeners in RecyclerView.
+        4.Utility Functions:  Define reusable higher-order functions for tasks like validating input, transforming data, or handling asynchronous operations.
+
+```kotlin
+fun main() {
+    // Using the higher-order function for addition
+    val additionResult = calculate(10, 20, ::add)
+    println("Addition: $additionResult") // Output: 30
+
+    // Using the higher-order function for subtraction
+    val subtractionResult = calculate(10, 20) { a, b -> a - b }
+    println("Subtraction: $subtractionResult") // Output: -10
+}
+
+// Higher-order function
+fun calculate(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
+    return operation(a, b)
+}
+
+// Function for addition (function reference)
+fun add(a: Int, b: Int): Int {
+    return a + b
+}
+```
 
 # Extensions and Infix Functions
 - ✅ Extension functions allow you to add new functionality to existing classes without altering their source code.
@@ -208,41 +242,6 @@ It’s useful when working with state management or representing different types
       is Result.Failure -> println(result.error)
   }
 
-# Higher-Order Functions 
-- Pass functions as a parameter or return them as function
-Advantage:
-- code Reusability
-- Reducing Boilerplate Code:
-- Better Performance: Inline functions reduce the runtime overhead by inlining the logic during compilation, which is critical for performance-sensitive Android apps.
-- Flexibility
-- Improved Readability:
- - Where to Use Higher-Order and Inline Functions in Android
- -      1.View Click Listeners: Use higher-order functions to handle repetitive UI tasks, such as click listeners or touch event listeners.
-        2.Network Operations: Use higher-order functions to define common tasks like making API calls with callbacks.
-        3.Custom RecyclerView Adapters: use higher-order functions to define item click or long-click listeners in RecyclerView.
-        4.Utility Functions:  Define reusable higher-order functions for tasks like validating input, transforming data, or handling asynchronous operations.
-
-```kotlin
-fun main() {
-    // Using the higher-order function for addition
-    val additionResult = calculate(10, 20, ::add)
-    println("Addition: $additionResult") // Output: 30
-
-    // Using the higher-order function for subtraction
-    val subtractionResult = calculate(10, 20) { a, b -> a - b }
-    println("Subtraction: $subtractionResult") // Output: -10
-}
-
-// Higher-order function
-fun calculate(a: Int, b: Int, operation: (Int, Int) -> Int): Int {
-    return operation(a, b)
-}
-
-// Function for addition (function reference)
-fun add(a: Int, b: Int): Int {
-    return a + b
-}
-```
 ## Coroutines Features
 - Coroutines are a Kotlin feature that allows you to write asynchronous, non-blocking code in a simple and readable way.
 - coroutines are used to handle tasks like fetching data from the internet or reading from a database on a background thread.
