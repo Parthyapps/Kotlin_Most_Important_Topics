@@ -144,19 +144,24 @@ println("Result: $result") // Output: Result: 30
           }
    ```
 # Infix 
-An infix function allows you to call a function in an infix notation (i.e., without using a dot . or parentheses ()).
-      ```kotlin// Define an infix function
-            fun main() {
-                val result = 5 add 10 // Infix notation
-                println(result) // Output: 15
-            }
-            infix fun Int.add(value: Int): Int {
-                return this + value
-            }         
-      ```
+- Allows calling a function without . and parentheses () (like operators).
+  An infix function allows you to call a function in an infix notation (i.e., without using a dot . or parentheses ()).
+   ```kotlin
+   // Define an infix function
+        fun main() {
+         val result = 5 add 10 // Infix notation
+          println(result) // Output: 15
+        }
+         infix fun Int.add(value: Int): Int {
+          return this + value
+          }         
+   ```
 
 # Inline
-  - ✅ The inline keyword improves performance by avoiding function call overhead, especially for higher-order functions.
+  - Used to reduce overhead of higher-order functions (avoids lambda object creation).
+  - The inline keyword tells Kotlin to copy the function body directly where it's called (instead of creating a function object).
+  - Helps in performance optimization when using lambdas.
+
    ```kotlin
     fun main() {
         val result = calculate(5, 3) { x, y -> x + y }
