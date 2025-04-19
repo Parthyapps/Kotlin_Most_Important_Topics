@@ -268,68 +268,46 @@ Coroutines make asynchronous programming easier by allowing your code to run asy
    - Dispatchers.Default: Used for CPU-intensive tasks.
    - Dispatchers.Unconfined: Runs on the caller thread until suspension.
 
-launch
-  ```kotlin
-          import kotlinx.coroutines.*
-          fun main() {
-            GlobalScope.launch { 
-                delay(1000L) 
-                println("Hello from Coroutine!")
-            }
-            println("Hello from Main Thread!")
-            Thread.sleep(2000L)
-          }
-  ```
- - async is used when you need a result computed in a coroutine.
- ```kotlin
-    import kotlinx.coroutines.*
-    fun main() {
-    GlobalScope.launch {
-        val result = async { 
-            computeResult() 
+✅ 1. Synchronous API call (sequential execution)
+-Here, both API calls run one after the other — synchronously (sequentially).
+
+    lifecycleScope.launch {
+        val userResponse = apiService.getUser() // waits until this finishes
+        val postsResponse = apiService.getPosts() // starts after userResponse is done
+        
+        if (userResponse.isSuccessful && postsResponse.isSuccessful) {
+            // handle data
         }
-        println("Computed result: ${result.await()}")
-    }
-    Thread.sleep(2000L)
-    }
-    suspend fun computeResult(): Int {
-    delay(1000L)
-    return 42
-    }
- ```
-- runBlocking is a bridge between non-coroutine world and coroutine world.
--  ```kotlin
-   import kotlinx.coroutines.*
-
-    fun main() = runBlocking { 
-    launch { 
-        delay(1000L) 
-        println("Hello from Coroutine!")
-    }
-    println("Hello from Main Thread!")
-    }
-   In this code, we’re starting a main coroutine using runBlocking, and inside this coroutine, we're launching a new coroutine.
-
-   fun main() = runBlocking {
-    // Using launch: Fire-and-forget (no result)
-    val job = launch {
-        println("Fetching user data using launch...") // Fire-and-forget
-        delay(2000L) // Simulating a network call
-        println("User data fetched launch!")
     }
 
-    // Using async: Returns a result
-    val deferred = async {
-        println("Calculating user's score in async...")
-        delay(2000L) // Simulating a calculation
-        95 // This is the computed result
+✅ 2. Asynchronous (concurrent) API call using async
+- Use async to run them in parallel, both kick off immediately, and wait for results when you need them.
+- This saves time because both calls are executed in parallel, and only wait when you call .await().
+
+       lifecycleScope.launch {
+            val userDeferred = async { apiService.getUser() }
+            val postsDeferred = async { apiService.getPosts() }
+        
+            val userResponse = userDeferred.await()
+            val postsResponse = postsDeferred.await()
+        
+            if (userResponse.isSuccessful && postsResponse.isSuccessful) {
+                // Both responses are ready now
+            }
+        }
+
+  ✅ 3. Run parallel calls in background (IO Dispatcher)
+
+      CoroutineScope(Dispatchers.IO).launch {
+        val userDeferred = async { apiService.getUser() }
+        val postsDeferred = async { apiService.getPosts() }
+    
+        val user = userDeferred.await()
+        val posts = postsDeferred.await()
+    
+        // process data
     }
 
-    println("Waiting for results... outside log")
-    job.join() // Wait for the launch task to complete
-    val userScore = deferred.await() // Wait for the async result
-    println("User's score is final $userScore")
-    }
 - **Coroutine Context**
 - **withcontext **: Helps to **switch between different coroutine dispatchers** (e.g., from Dispatchers.IO to Dispatchers.Main). (Performing background tasks on Dispatchers.IO and updating the UI on Dispatchers.Main.)
 - Every coroutine in Kotlin has a context associated with it, which is a set of various elements. The key elements in this set are Job of the coroutine and its dispatcher.
