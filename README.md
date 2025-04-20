@@ -51,7 +51,7 @@ Sealed Classes: Using sealed classes for representing restricted class hierarchi
 
 # 🚀 Scope Functions in Kotlin  
 Kotlin provides **scope functions** to simplify object operations. Here’s a quick guide:  
-## 🔹 `let`  
+## 🔹 `let`  Object Reference : it, Return Value: Lambda result
 ✔ Used for **null checks** (`?.let { }`)  
 ✔ Executes block only if the object is **non-null**  
 ```kotlin
@@ -69,7 +69,7 @@ fun main(){
    })
 }
 ```
-## 🔹 `apply`  
+## 🔹 `apply`  Object Reference : this, Return Value: Context object
 ✔ Used for **object initialization**  
 ✔ Modifies the **object** and **returns the same object**.
    ```kotlin
@@ -83,7 +83,7 @@ fun main(){
       }
   ```
 
-## 🔹 `also`  
+## 🔹 `also`  Object Reference : it, Return Value: Context object
 ✔ Used for performing additional actions on an object
 ✔ Returns the **same object**  
 ```kotlin
@@ -93,7 +93,7 @@ fun main(){
           Log.d("ListDebug", "List after adding: $it")
       }
 ```
-## 🔹 `with`  
+## 🔹 `with`  Object Reference : this, Return Value: Lambda result
 ✔ Used for grouping operations on an object.
 ✔ **Does not return** the object but executes operations  
 ```kotlin
@@ -105,7 +105,7 @@ fun main(){
       }
 ```
 
-## 🔹 `run`  
+## 🔹 `run`  Object Reference : this, Return Value: Lambda result
 ✔ Combines **`let` + `with`**  
 ✔ Used for object configuration and returning a result.
 ✔ Use run when you need to perform multiple operations and return a result.
