@@ -20,8 +20,11 @@
       val name: String? = null
       val finalName = name ?: "Guest"
 ## 3️⃣ Not-Null Assertion Operator (!!)
-- 
+- “Trust me, I know this value is not null. Let me use it without extra checks.”
+- ⚠️ Only use !! when you're absolutely sure the variable is not null — otherwise it's dangerous.
 
+      val name: String? = null
+      val length = name!!.length // ❌ This will throw NPE
 
 # Kotlin Fundamentals
 Exceptions: Understanding try-catch blocks, throwing exceptions, and creating custom exceptions.
