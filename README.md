@@ -2,10 +2,26 @@
 - Kotlin is a **statically typed** programming language that runs on the **Java Virtual Machine (JVM)**.  
 - Developed by **JetBrains**, it is widely used for **Android development** and other applications.
 - Built-in Null Safety (?, !!, ?:)
+- NullPointException (NPE) is a common runtime issue
+- safe call (?.) can hold a null value 
 - DSL Support - Natural DSL via lambdas/context receivers
 - Multiplatform - KMM supports Android, iOS, Web
 - Data Class - A data class is a special class in Kotlin designed to hold data (state)
 - while automatically generating useful methods like: toString(),equals() & hashCode(),copy()
+
+## 1️⃣ Safe Call Operator (?.)
+- Used to safely access a property or method only if the variable is not null.
+
+-     val name: String? = null
+      val length = name?.length  // returns null instead of throwing NPE
+## 2️⃣ Elvis Operator (?:)
+- Used to provide a default value if the expression on the left is null.
+
+      val name: String? = null
+      val finalName = name ?: "Guest"
+## 3️⃣ Not-Null Assertion Operator (!!)
+- 
+
 
 # Kotlin Fundamentals
 Exceptions: Understanding try-catch blocks, throwing exceptions, and creating custom exceptions.
