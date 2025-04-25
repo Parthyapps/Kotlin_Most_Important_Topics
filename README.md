@@ -215,9 +215,12 @@ fun add(a: Int, b: Int): Int {
    ```
 
 # Inline
-  - Used to reduce overhead of higher-order functions (avoids lambda object creation).
+  - Inline function is instruct compiler to insert the complete body of the function wherever that fun get used in the code.
+  - Adv: Function call overhead doesn't occur.Less overhead and faster program excution.
   - The inline keyword tells Kotlin to copy the function body directly where it's called (instead of creating a function object).
   - Helps in performance optimization when using lambdas.
+  - When func code is very small good idea to make inline
+  - When fun code is large and called from so many places dont use inline, large code will be repeat again and again
 
    ```kotlin
     fun main() {
