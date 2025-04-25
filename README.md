@@ -44,7 +44,7 @@ Sealed Classes: Using sealed classes for representing restricted class hierarchi
             }
 
 # Kotlin: lateinit vs lazy – When to Use What?
--🔹 When to Use lateinit
+-🔹 When to Use lateinit both lateinit and lazy used for defer property initialization.
 - **Use lateinit when we dont know the initial value at the time class creation.**
 - ✅ Can be used with var (mutable)
 - ✅ lateinit cannot used with nullabale types
@@ -53,6 +53,7 @@ Sealed Classes: Using sealed classes for representing restricted class hierarchi
 -     lateinit var binding: ActivityMainBinding 
 
 - 🔹 When to Use lazy
+- initilize the property only when its accessed for the first time.
 - ✅ Can be used with only val (immutable)
 - ✅ Delays initialization until used	
 - ✅ lazy properties are checked for initialization at compile time.
