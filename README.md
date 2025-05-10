@@ -12,7 +12,7 @@
 ## 1️⃣ Safe Call Operator (?.)
 - Used to safely access a property or method only if the variable is not null.
 
--     val name: String? = null
+      val name: String? = null
       val length = name?.length  // returns null instead of throwing NPE
 ## 2️⃣ Elvis Operator (?:)
 - Used to provide a default value if the expression on the left is null.
