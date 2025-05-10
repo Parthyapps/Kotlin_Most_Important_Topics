@@ -1,7 +1,7 @@
 # Kotlin Overview
 - Kotlin is a **statically typed** programming language that runs on the **Java Virtual Machine (JVM)**.  
 - Developed by **JetBrains**, it is widely used for **Android development** and other applications.
-- Built-in Null Safety (?, !!, ?:)
+- Built-in Null Safety. Safe calls (?.), Elvis operator (?:), and non-null assertion (!!) help handle nulls safely.
 - NullPointException (NPE) is a common runtime issue
 - safe call (?.) can hold a null value 
 - DSL Support - Natural DSL via lambdas/context receivers
