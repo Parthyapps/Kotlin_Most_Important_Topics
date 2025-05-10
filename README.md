@@ -37,6 +37,8 @@ Sealed Classes: Using sealed classes for representing restricted class hierarchi
   
             **- val recyclerView: RecyclerView = findViewById(R.id.recycler_view)**
 - const val is Compile-Time Constant (Like static final in Java) and can only be used with top-level or object classes, not inside functions or regular classes.
+- Use const for global constants (like API keys, mathematical constants, or configuration values) that never change.
+- Inside an object or companion object:
 
          object AppConfig {
                 const val BASE_URL = "https://api.example.com"
