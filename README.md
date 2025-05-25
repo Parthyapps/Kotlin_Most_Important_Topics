@@ -281,15 +281,15 @@ It’s useful when working with state management or representing different types
 Coroutines make asynchronous programming easier by allowing your code to run asynchronously while still being sequential and structured like synchronous code.
 - **Suspend Functions:**
     - A suspend function is a special type of function that can suspend its execution and resume later. These functions are the building blocks of coroutines
-- **Coroutine Builders**:
+- ✅ **Coroutine Builders**:
     - Coroutines in Kotlin are created using coroutine builders like launch, async, and runBlocking.
-    - launch: Starts a new coroutine but does not return a result.
-    - async: Starts a new coroutine and returns a result via a Deferred object, which can be awaited using await().
+    - ✅ launch: Starts a new coroutine but does not return a result.
+    - ✅ async: Starts a new coroutine and returns a result via a Deferred object, which can be awaited using await().
       - await():Suspends the execution of the current coroutine until the result of the Deferred is ready.This ensures that all API calls complete before combining the results.
-    - runBlocking: Blocks the current thread until all coroutines inside the block have finished executing. This is mainly used in the main function or for testing.
-    - withcontext(Dispatchers.IO) - switches to a different thread.
+    - ✅ runBlocking: Blocks the current thread until all coroutines inside the block have finished executing. This is mainly used in the main function or for testing.
+    - ✅ withcontext(Dispatchers.IO) - switches to a different thread.
       
-- **Dispatchers**
+- ✅ **Dispatchers**
    - Dispatchers define on which thread a coroutine will run.
    - Dispatchers.Main: Runs on the main thread, typically used for UI updates in Android.
    - Dispatchers.IO: Used for I/O operations (e.g., network calls, database operations).
@@ -337,7 +337,7 @@ Coroutines make asynchronous programming easier by allowing your code to run asy
     }
 
 - **Coroutine Context**
-- **withcontext **: Helps to **switch between different coroutine dispatchers** (e.g., from Dispatchers.IO to Dispatchers.Main). (Performing background tasks on Dispatchers.IO and updating the UI on Dispatchers.Main.)
+- ✅ **withcontext **: Helps to **switch between different coroutine dispatchers** (e.g., from Dispatchers.IO to Dispatchers.Main). (Performing background tasks on Dispatchers.IO and updating the UI on Dispatchers.Main.)
 - Every coroutine in Kotlin has a context associated with it, which is a set of various elements. The key elements in this set are Job of the coroutine and its dispatcher.
 - Job
    A Job represents a coroutine and allows you to manage its lifecycle (e.g., start, cancel, wait for completion).
@@ -369,12 +369,12 @@ Coroutines make asynchronous programming easier by allowing your code to run asy
 
 ## Coroutines scopes
 - There are basically 3 scopes in Kotlin coroutines:
-- 1.Global Scope - Not tied up with any lifecycle. Task run for entire app lifecycle until we cancel manually.( No lifecycle awareness, can lead to memory leaks or unmanaged resources.)
-- 2.LifeCycle Scope. - Lifecycle aware and tied with Activity , fragment. coroutines are cancelled when activity reaches destory state.(Useful for UI-related tasks, such as animations, fetching data for the UI, or updating LiveData.)
-- 3.ViewModel Scope - Lifecycle-aware scope tied to the ViewModel.Coroutines are automatically cancelled when the ViewModel is cleared.( Ideal for long-running tasks like API calls or database operations in ViewModel that survive configuration changes.)
-- CoroutineScope: Fully customizable; used for independent tasks with manual control.
-- CoroutineScope -> Cancel whenever any of its children fail.
-- SupervisorScope -> If we want to continue with the other tasks even when one fails, we go with the supervisorScope. A supervisorScope won’t cancel other children when one of them fails.
+- ✅ 1.Global Scope - Not tied up with any lifecycle. Task run for entire app lifecycle until we cancel manually.( No lifecycle awareness, can lead to memory leaks or unmanaged resources.)
+- ✅ 2.LifeCycle Scope. - Lifecycle aware and tied with Activity , fragment. coroutines are cancelled when activity reaches destory state.(Useful for UI-related tasks, such as animations, fetching data for the UI, or updating LiveData.)
+- ✅ 3.ViewModel Scope - Lifecycle-aware scope tied to the ViewModel.Coroutines are automatically cancelled when the ViewModel is cleared.( Ideal for long-running tasks like API calls or database operations in ViewModel that survive configuration changes.)
+- ✅ CoroutineScope: Fully customizable; used for independent tasks with manual control.
+- ✅ CoroutineScope -> Cancel whenever any of its children fail.
+- ✅ SupervisorScope -> If we want to continue with the other tasks even when one fails, we go with the supervisorScope. A supervisorScope won’t cancel other children when one of them fails.
 
 ## Delays & Timeouts
 - delay(1000l) - pause coroutine without blocking
